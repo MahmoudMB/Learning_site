@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Learning_site.Models.Course>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Courses</h2>
+
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.code)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.code)
+        </td>
+
+        <td>
+            <button class="btn btn-primary ">@Html.ActionLink("Show Enrolled Student", "ShowEnrolledStudent", "Instructor", new { id = item.Id }, new { style = "text-decoration:none;color:#FFFFFF" })</button>
+            <button class="btn btn-danger btn1">@Html.ActionLink("Delete Course", "Delete", "Instructor", new { id = item.Id }, new { style = "text-decoration:none;color:#FFFFFF" })</button>
+
+        </td>
+    </tr>
+}
+
+</table>
+
+
+<button class="btn btn-warning" onclick="location.href='@Url.Action("CreateCourse", "Instructor")';return false;">Create New Course</button>

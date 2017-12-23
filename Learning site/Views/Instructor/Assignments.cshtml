@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Learning_site.Models.Assignment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Assignments</h2>
+
+
+
+@foreach (var item in Model)
+{
+    <div class="new-block">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Subject <span class="grade-span">     @Html.DisplayFor(modelItem => item.subject)</span></h4>
+                <br />
+                <h4>Grade <span class="grade-span">     @Html.DisplayFor(modelItem => item.Grade)</span></h4>
+                
+                <button class="btn btn-primary Grade">@Html.ActionLink("Download", "Download", "Instructor", new { id = item.Id }, new { style = "text-decoration:none;color:#FFFFFF" })</button>
+                <button class="btn btn-primary Download ">@Html.ActionLink("Grade", "Grade", "Instructor", new { id = item.Id }, new { style = "text-decoration:none;color:#FFFFFF" })</button>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+}
+
+
+
+
+
+
+

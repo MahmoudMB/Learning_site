@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Learning_site.Models.EnrolledCourse>
+
+@{
+    ViewBag.Title = "ShowEnrolledStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Students</h2>
+
+
+
+
+
+
+@foreach (var item in Model)
+{
+    <div class="new-block">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Student Name     </h4> <span class="code-span"> @Html.DisplayFor(modelItem => item.Student.Name)</span> 
+
+                <button class="btn btn-primary delete ">@Html.ActionLink("Show All Assignmets", "GetAssign", "Instructor", new { id = item.StudentId }, new { style = "text-decoration:none;color:#FFFFFF" })</button>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+}
+
+
+
+
+
+
+
