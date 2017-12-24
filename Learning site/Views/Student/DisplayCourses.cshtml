@@ -34,7 +34,8 @@
         </td>
         <td>
       
-            <button  id ="EnrollBtn" class="EnrollBtn btn">@Html.ActionLink("Enroll", "EnrollInCourse", new { id = item.Id })</button>
+           
+            <button  id ="EnrollBtn" class="EnrollBtn btn btn-primary">@Html.ActionLink("Enroll", "EnrollInCourse", new { id = item.Id }, new { style = "text-decoration:none;color:#FFFFFF" })</button>
            
       
         </td>
@@ -45,6 +46,7 @@
 
 
 <script>
+
 
 
     $('#EnrollBtn').click(function () {

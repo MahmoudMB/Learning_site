@@ -32,17 +32,23 @@ textarea {
 }
 
 
-
-th {
-
-    font-size:20px;
-    font-family:sans-serif;
+head-span{
+    font-size: 25px;
+    font-family: sans-serif;
 }
 
 
-.enrolled {
-float:left;
+detail-span {
+    float: left;
+    font-size: 15px;
 }
+
+.btn {
+    border-radius: 25px;
+}
+
+
+
 
 .delete {
     float: right;
@@ -79,4 +85,45 @@ float:left;
 
 .new-block h4 {
         font-size: 25px;
+    }
+
+
+
+.RigsterDiv {
+    position: absolute;
+    top: 200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 500px;
+}
+
+.LoginDiv {
+    position: absolute;
+    top: 200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 500px;
+    height: 500px;
+}
+
+
+.navbar a:hover {
+    background-color: #64B5F6;
+    background-image: -webkit-linear-gradient(top, #64B5F6, #fff);
+}
+
+.navbar {
+  
+    background-image: -webkit-linear-gradient(top, #2962FF, #BBDEFB);
+    border-color: #e7e7e7;
+    
+}
+
+    .navbar a {
+        color: #01579B;
     }

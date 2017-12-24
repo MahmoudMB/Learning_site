@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-12">
             <h4>@Html.DisplayFor(modelItem => item.name)<span class="code-span">     @Html.DisplayFor(modelItem => item.code)</span></h4>
-            <button class="btn btn-danger delete">@Html.ActionLink("Delete Course", "Delete", "Instructor", new { id = item.Id }, new { style = "text-decoration:none;color:#FFFFFF" })</button>
+            <button  id="delete" class="btn btn-danger delete">@Html.ActionLink("Delete Course", "DeleteCourse", "Instructor", new { id = item.Id }, new { style = "text-decoration:none;color:#FFFFFF" })</button>
             <button class="btn btn-primary enrolled ">@Html.ActionLink("Show Enrolled Student", "ShowEnrolledStudent", "Instructor", new { id = item.Id }, new { style = "text-decoration:none;color:#FFFFFF" })</button>
 
 
@@ -28,6 +28,23 @@
 
 }
 
+<button class="btn btn-warning ">@Html.ActionLink("CreateCourse", "CreateCourse", "Instructor",null, new { style = "text-decoration:none;color:#FFFFFF" })</button>
 
 
-<button class="btn btn-warning" onclick="location.href='@Url.Action("CreateCourse", "Instructor")';return false;">Create New Course</button>
+
+
+
+
+<script>
+
+
+
+    $('#delete').click(function () {
+        // show when the button is clicked
+        toastr.success('Course deleted');
+
+    });
+
+</script>
+
+

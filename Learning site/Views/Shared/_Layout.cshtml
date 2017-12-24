@@ -10,7 +10,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/toastr.js"></script>
     <script src="~/Scripts/customJs.js"></script>
-    
+    <script src="~/Scripts/canvas.js"></script>
     @RenderSection("scripts", required: false)
 </head>
 
@@ -18,9 +18,7 @@
 
 
 
-
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-fixed-top navbar navbar-toggleable-md  ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -89,7 +87,7 @@
             </div>
         </div>
     </div>
-    <div class="container body-content" >
+    <div class="body-content" >
 
 
         @RenderBody()

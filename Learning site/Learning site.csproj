@@ -192,7 +192,6 @@
     <Compile Include="Controllers\InstructorController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AssignmentController.cs" />
-    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -292,6 +291,14 @@
     <Compile Include="Migrations\201712231347297_sds.Designer.cs">
       <DependentUpon>201712231347297_sds.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712231458101_122222.cs" />
+    <Compile Include="Migrations\201712231458101_122222.Designer.cs">
+      <DependentUpon>201712231458101_122222.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712240042051_12222222.cs" />
+    <Compile Include="Migrations\201712240042051_12222222.Designer.cs">
+      <DependentUpon>201712240042051_12222222.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Assignment.cs" />
@@ -302,9 +309,9 @@
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\Courses.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\toastr.css" />
@@ -322,6 +329,7 @@
     <Content Include="Content\toastr.less" />
     <None Include="Properties\PublishProfiles\Learningsite2017122202095111 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\canvas.js" />
     <Content Include="Scripts\customJs.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -371,16 +379,11 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
-    <Content Include="Views\Course\Create.cshtml" />
-    <Content Include="Views\Course\Index.cshtml" />
     <Content Include="Views\Instructor\Index.cshtml" />
     <Content Include="Views\Instructor\CreateCourse.cshtml" />
     <Content Include="Views\Student\DisplayCourses.cshtml" />
-    <Content Include="Views\Student\CourseDetail.cshtml" />
     <Content Include="Views\Student\EnrollInCourse.cshtml" />
-    <Content Include="Views\Student\DisplayEnrolled.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
-    <Content Include="Views\Student\DisplayDetails.cshtml" />
     <Content Include="Views\Assignment\DisplayDetails.cshtml" />
     <Content Include="Views\Assignment\Index.cshtml" />
     <Content Include="Views\Instructor\ShowEnrolledStudent.cshtml" />
@@ -476,6 +479,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712231347297_sds.resx">
       <DependentUpon>201712231347297_sds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712231458101_122222.resx">
+      <DependentUpon>201712231458101_122222.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712240042051_12222222.resx">
+      <DependentUpon>201712240042051_12222222.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

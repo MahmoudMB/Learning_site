@@ -31,7 +31,19 @@ namespace Learning_site.Controllers
             Session["CourseID"] = Id;
             string currentUserId = User.Identity.GetUserId();
 
+
+            var EnrolledCourses = _context.EnrolledCourses.Where(c => c.StudentId == currentUserId).SingleOrDefault(c => c.CourseId == Id);
+
+            if (EnrolledCourses == null)
+            {
+                return HttpNotFound();
+            }
+
+
+
             var Assignments = _context.Assignments.Where(c => c.studentId == currentUserId).Where(c=>c.courseId== Id).ToList();
+
+  
 
             
             return View(Assignments);
@@ -75,7 +87,15 @@ namespace Learning_site.Controllers
         [Authorize(Roles = "student")]
         public ActionResult Edit(int id)
         {
-            var Assignment = _context.Assignments.SingleOrDefault(a => a.Id == id);
+
+
+
+            string currentStdentId = User.Identity.GetUserId();
+
+            var Assignment = _context.Assignments.Where(a=>a.studentId== currentStdentId).SingleOrDefault(a => a.Id == id);
+            if (Assignment == null)
+                return HttpNotFound();
+            
 
             return View(Assignment);
         }
@@ -114,30 +134,20 @@ namespace Learning_site.Controllers
         public ActionResult Delete(int id)
         {
 
-            var assignment = _context.Assignments.SingleOrDefault(a => a.Id == id);
-            _context.Assignments.Remove(assignment);
+            string currentStdentId = User.Identity.GetUserId();
+
+            var Assignment = _context.Assignments.Where(a => a.studentId == currentStdentId).SingleOrDefault(a => a.Id == id);
+            if (Assignment == null)
+                return HttpNotFound();
+
+
+            _context.Assignments.Remove(Assignment);
             _context.SaveChanges();
 
-            return RedirectToAction("Index",new { id=assignment.courseId});
+            return RedirectToAction("Index",new { id= Assignment.courseId});
 
-
-            return View();
         }
 
-        // POST: Assignment/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-                
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
     }
 }

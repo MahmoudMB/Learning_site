@@ -5,44 +5,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ALL student Courses</h2>
+<h2>My Enrolled Courses</h2>
 
 
 
-
-<table class="table">
-    <tr>
-        <th>Course</th>
-        <th> Assignment </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.course.name)
-            </td>
-
-            <td>
-
-
+@foreach (var item in Model)
+{
+    <div class="new-block">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Course: <span class="head-span">     @Html.DisplayFor(modelItem => item.course.name)</span></h4>
+                <br />
+                <h4>code: <span class="detail-span">  @Html.DisplayFor(modelItem => item.course.code)</span></h4>
+               
+              
                 <button class="btn btn-primary">@Html.ActionLink("Show Assignment", "Index", "Assignment", new { id = item.CourseId }, new { style = "text-decoration:none;color:#FFFFFF" })</button>
 
-
-            </td>
-
-            <td></td>
-
-
-
-
-        </tr>
-    }
-
-</table>
+                
+            
+            
+            </div>
+        </div>
+    </div>
 
 
 
+}
 
 
 

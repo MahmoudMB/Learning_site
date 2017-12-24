@@ -76,7 +76,17 @@ namespace Learning_site.Content
         public ActionResult ShowEnrolledStudent(int Id)
         {
             Session["AssignmentCourseId"] = Id;
-          //  Session["StudentId"] = User.Identity.GetUserId();
+            //  Session["StudentId"] = User.Identity.GetUserId();
+
+
+            var instructorID = User.Identity.GetUserId();
+
+            var course = _context.Courses.Where(a => a.InstructorId == instructorID).SingleOrDefault(c => c.Id == Id);
+            if (course == null)
+            {
+                return HttpNotFound();
+            }
+
             var students = _context.EnrolledCourses.Include(a => a.Student).Where(a => a.CourseId == Id).ToList();
 
 
@@ -87,6 +97,9 @@ namespace Learning_site.Content
 
         public ActionResult Grade(int id)
         {
+
+
+
 
             var assign = _context.Assignments.SingleOrDefault(a => a.Id == id);
             return View(assign);
@@ -147,70 +160,7 @@ namespace Learning_site.Content
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        // GET: Instructor/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: Instructor/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Instructor/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Instructor/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Instructor/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Instructor/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeleteCourse(int id)
         {
             Course c = _context.Courses.SingleOrDefault(a => a.Id == id);
             _context.Courses.Remove(c);
@@ -219,20 +169,6 @@ namespace Learning_site.Content
             return RedirectToAction("Index");
         }
 
-        // POST: Instructor/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+  
     }
 }

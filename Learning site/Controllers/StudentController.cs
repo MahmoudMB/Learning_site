@@ -20,15 +20,15 @@ namespace Learning_site.Controllers
             _context = new ApplicationDbContext();
 
         }
+
+
         public ActionResult Index()
         {
-            string currentUserId = User.Identity.GetUserId();
 
-            //  var Courses = _context.EnrolledCourses.Include(m => m.course).Include(m => m.assignment).Where(c => c.StudentId == currentUserId).ToList();
+            string currentUserId = User.Identity.GetUserId();
             var Courses = _context.EnrolledCourses.Include(m => m.course).Where(c => c.StudentId == currentUserId).ToList();
             return View(Courses);
-
-
+   
 
         }
 
@@ -38,21 +38,24 @@ namespace Learning_site.Controllers
            
             var Courses = _context.Courses.ToList();
 
+
+
             return View(Courses);
         }
+
 
 
         public ActionResult CourseDetail(int id)
         {
 
             var course = _context.Courses.Include(a => a.instructor).SingleOrDefault(b => b.Id == id);
-            Session["CourseId"] = id;
+
+            //Session["CourseId"] = id;
             return View(course);
         }
 
 
 
-        
             public ActionResult EnrollInCourse(int id)
         {
 
@@ -66,7 +69,7 @@ namespace Learning_site.Controllers
             if (EnrolledCourse != null)
             {
                 
-
+         
                // return Content("You are already enrolled in the course");
              return    RedirectToAction("DisplayCourses");
             }
@@ -78,43 +81,10 @@ namespace Learning_site.Controllers
             _context.EnrolledCourses.Add(enroll);
             _context.SaveChanges();
            return  RedirectToAction("DisplayCourses");
+
+
         }
 
 
-
-
-
-        public ActionResult DisplayEnrolled()
-        {
-            string currentUserId = User.Identity.GetUserId();
-            var Courses = _context.EnrolledCourses.Include(m=>m.course).Where(c => c.StudentId == currentUserId).ToList();
-
-            return View(Courses);
-        }
-
-
-
-
-        // GET: Student/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Student/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
 }

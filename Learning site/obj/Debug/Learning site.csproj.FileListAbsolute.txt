@@ -141,3 +141,5 @@ C:\Users\SG\source\repos\Learning site\Learning site\obj\Debug\Learning site.csp
 C:\Users\SG\source\repos\Learning site\Learning site\obj\Debug\Learning site.dll
 C:\Users\SG\source\repos\Learning site\Learning site\obj\Debug\Learning site.pdb
 C:\Users\SG\source\repos\Learning site\Learning site\obj\Debug\Learning_site.Migrations.sds.resources
+C:\Users\SG\source\repos\Learning site\Learning site\obj\Debug\Learning_site.Migrations._122222.resources
+C:\Users\SG\source\repos\Learning site\Learning site\obj\Debug\Learning_site.Migrations._12222222.resources

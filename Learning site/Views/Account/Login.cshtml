@@ -1,7 +1,6 @@
 ﻿@using Learning_site.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Log in";
 }
 
 
@@ -9,12 +8,12 @@
 
 <h2>@ViewBag.Title.</h2>
 <div class="row" >
-    <div class="col-md-8" style="align-items:center">
+    <div class="col-md-8 LoginDiv">
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
+                <h4>Log in Your Instructor Or student Account.</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
@@ -56,11 +55,11 @@
     </div>
     
 </div>
+    <canvas></canvas>
 
+<script src="~/Scripts/canvas.js"></script>
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 @Scripts.Render("~/Scripts/canvas.js")
-
-
 
 }
